@@ -1,4 +1,4 @@
-Magpies are my favourite birds
+/*Magpies are my favourite birds
 Baby ones even more so...
 
 
@@ -30,13 +30,22 @@ On the other hand, Magpie 3 cannot be a child of Magpie 1 because there are thre
 
 
 Solution:
+*/
 
-const child = (bird1, bird2, dif = 0) => {  
-  for (let i=0; i<bird1.length; i++) if (bird1[i]!=bird2[i]) dif++;  
-  return dif < 3 && dif > 0;
+var child = function(bird1, bird2) {
+  if (bird1 === bird2) return false;
+  return difference(bird1, bird2) < 3 ? true : false;
 }
 
-const grandchild = (bird1, bird2, dif = 0) => {   
-  for (let i=0; i<bird1.length; i++) if (bird1[i]!=bird2[i]) dif++;     
-  return dif < 5 && bird1.length > 1 || !dif;
+var grandchild = function(bird1, bird2) {
+  if (bird1.length === 1 && bird2.length === 1 && bird2 != bird1) return false;
+  return difference(bird1, bird2) <= 4 ? true : false;
+}
+
+function difference(bird1, bird2){
+  let diff = 0;
+  for (let i = 0; i < bird1.length; i++){
+    if (bird1.slice(i,i+1) !== bird2.slice(i,i+1)) diff++;
+  }
+  return diff;
 }

@@ -1,4 +1,4 @@
-In this kata you're expected to sort an array of 32-bit integers in ascending order of the number of on bits they have.
+/*In this kata you're expected to sort an array of 32-bit integers in ascending order of the number of on bits they have.
 
 E.g Given the array [7, 6, 15, 8]
 
@@ -21,5 +21,6 @@ Example:
 [3, 8, 3, 6, 5, 7, 9, 1]   =>    [1, 8, 3, 3, 5, 6, 9, 7]
 
 Solution:
+*/
 
 const sortByBit = arr => arr.sort((a, b) => a.toString(2).replace(/0/g, '') - b.toString(2).replace(/0/g, '') || a - b)
